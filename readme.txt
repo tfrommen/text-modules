@@ -185,7 +185,7 @@ This filter lets you alter the shortcode's 'id' attribute name.
 
 `
 /**
- * Filter the `id` shortcode attribute name.
+ * Filter the 'id' shortcode attribute name.
  *
  * @param string $name Attribute name.
  */
@@ -237,7 +237,7 @@ This filter lets you alter the shortcode's 'slug' attribute name.
 
 `
 /**
- * Filter the `slug` shortcode attribute name.
+ * Filter the 'slug' shortcode attribute name.
  *
  * @param string $name Attribute name.
  */

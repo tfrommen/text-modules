@@ -39,14 +39,14 @@ class Shortcode {
 		$this->post_type = $post_type->get_post_type();
 
 		/**
-		 * Filter the `id` shortcode attribute name.
+		 * Filter the 'id' shortcode attribute name.
 		 *
 		 * @param string $name Attribute name.
 		 */
 		$this->attribute_names[ 'id' ] = apply_filters( 'text_modules_shortcode_id_attribute_name', 'id' );
 
 		/**
-		 * Filter the `slug` shortcode attribute name.
+		 * Filter the 'slug' shortcode attribute name.
 		 *
 		 * @param string $name Attribute name.
 		 */
