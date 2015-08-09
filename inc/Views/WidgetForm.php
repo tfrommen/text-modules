@@ -2,7 +2,7 @@
 
 namespace tf\TextModules\Views;
 
-use tf\TextModules\Models;
+use tf\TextModules\Models\PostType as PostTypeModel;
 use tf\TextModules\Widget;
 
 /**
@@ -30,11 +30,11 @@ class WidgetForm {
 	/**
 	 * Constructor. Set up the properties.
 	 *
-	 * @param Widget          $widget    Widget.
-	 * @param array           $instance  Widget settings.
-	 * @param Models\PostType $post_type Post type model.
+	 * @param Widget        $widget    Widget.
+	 * @param array         $instance  Widget settings.
+	 * @param PostTypeModel $post_type Post type model.
 	 */
-	public function __construct( Widget $widget, array $instance, Models\PostType $post_type ) {
+	public function __construct( Widget $widget, array $instance, PostTypeModel $post_type ) {
 
 		$this->widget = $widget;
 
@@ -57,7 +57,7 @@ class WidgetForm {
 		?>
 		<p>
 			<label for="<?php echo $id; ?>">
-				<?php _e( 'Title:', 'text-modules' ); ?>
+				<?php esc_html_e( 'Title:', 'text-modules' ); ?>
 			</label>
 			<input type="text" name="<?php echo $name; ?>" id="<?php echo $id; ?>" class="widefat"
 				value="<?php echo $value; ?>">
@@ -90,14 +90,17 @@ class WidgetForm {
 		?>
 		<p>
 			<label for="<?php echo $id; ?>">
-				<?php _e( 'Text Module:', 'text-modules' ); ?>
+				<?php esc_html_e( 'Text Module:', 'text-modules' ); ?>
 			</label>
 			<select name="<?php echo $name; ?>" id="<?php echo $id; ?>" class="widefat">
 				<?php if ( $have_posts ) : ?>
 					<?php foreach ( $posts as $post ) : ?>
 						<option value="<?php echo $post->ID; ?>" <?php selected( $value, $post->ID ); ?>>
 							<?php
-							$format = _x( '%s (ID: %d)', 'Widget form option format, %s = Post title, %d = Post ID', 'text-modules' );
+							$format = esc_html_x(
+								'%s (ID: %d)', 'Widget form option format, %s = Post title, %d = Post ID',
+								'text-modules'
+							);
 							printf(
 								$format,
 								$post->post_title,

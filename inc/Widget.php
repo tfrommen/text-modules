@@ -26,8 +26,8 @@ class Widget extends \WP_Widget {
 		$this->shortcode = new Models\Shortcode( $this->post_type );
 
 		$id_base = 'text-modules';
-		$name = _x( 'Text Module', 'Widget title', 'text-modules' );
-		$description = _x( 'Displays a specific text module.', 'Widget description', 'text-modules' );
+		$name = esc_html_x( 'Text Module', 'Widget title', 'text-modules' );
+		$description = esc_html_x( 'Displays a specific text module.', 'Widget description', 'text-modules' );
 		$widget_options = array(
 			'classname'   => 'widget-' . $id_base,
 			'description' => $description,

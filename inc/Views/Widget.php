@@ -2,7 +2,7 @@
 
 namespace tf\TextModules\Views;
 
-use tf\TextModules\Models;
+use tf\TextModules\Models\Shortcode as ShortcodeModel;
 
 /**
  * Class Widget
@@ -29,17 +29,17 @@ class Widget {
 	/**
 	 * Constructor. Set up the properties.
 	 *
-	 * @param array            $args      Display arguments including before_title, after_title, before_widget, and
-	 *                                    after_widget.
-	 * @param array            $instance  Widget settings.
-	 * @param string           $id_base   Widget ID base.
-	 * @param Models\Shortcode $shortcode Shortcode model.
+	 * @param array          $args      Display arguments including before_title, after_title, before_widget, and
+	 *                                  after_widget.
+	 * @param array          $instance  Widget settings.
+	 * @param string         $id_base   Widget ID base.
+	 * @param ShortcodeModel $shortcode Shortcode model.
 	 */
 	public function __construct(
 		array $args,
 		array $instance,
 		$id_base,
-		Models\Shortcode $shortcode
+		ShortcodeModel $shortcode
 	) {
 
 		$before_widget = isset( $args[ 'before_widget' ] ) ? $args[ 'before_widget' ] : '';

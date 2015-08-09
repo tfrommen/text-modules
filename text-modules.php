@@ -5,7 +5,7 @@
  * Description: Use the new Text Module custom post type and display a text module by either shortcode or widget.
  * Author:      Thorsten Frommen
  * Author URI:  http://ipm-frommen.de/wordpress
- * Version:     1.0
+ * Version:     1.0.1
  * Text Domain: text-modules
  * Domain Path: /languages
  * License:     GPLv3

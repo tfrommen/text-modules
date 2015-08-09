@@ -1,8 +1,10 @@
 {
 	"name": "text-modules",
+	"version": "1.0.1",
 	"description": "Use the new Text Module custom post type and display a text module by either shortcode or widget.",
+	"bugs": "https://github.com/tfrommen/text-modules/issues",
+	"license": "GPL-3.0",
 	"author": "Thorsten Frommen",
-	"version": "1.1.0",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/tfrommen/text-modules"

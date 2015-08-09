@@ -41,8 +41,8 @@ class Plugin {
 		$post_type_controller->initialize();
 
 		$columns = array(
-			'slug'      => _x( 'Slug', 'Slug posts column title', 'text-modules' ),
-			'shortcode' => _x( 'Shortcode', 'Shortcode posts column title', 'text-modules' ),
+			'slug'      => esc_html_x( 'Slug', 'Slug posts column title', 'text-modules' ),
+			'shortcode' => esc_html_x( 'Shortcode', 'Shortcode posts column title', 'text-modules' ),
 		);
 		$text_modules_page = new Models\TextModulesPage( $columns );
 		$shortcode = new Models\Shortcode( $post_type );

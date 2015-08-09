@@ -2,7 +2,8 @@
 
 namespace tf\TextModules\Views;
 
-use tf\TextModules\Models;
+use tf\TextModules\Models\PostType as PostTypeModel;
+use tf\TextModules\Models\Shortcode as ShortcodeModel;
 
 /**
  * Class MetaBox
@@ -17,17 +18,17 @@ class MetaBox {
 	private $post_type;
 
 	/**
-	 * @var Models\Shortcode
+	 * @var ShortcodeModel
 	 */
 	private $shortcode;
 
 	/**
 	 * Constructor. Set up the properties.
 	 *
-	 * @param Models\PostType  $post_type Post type model.
-	 * @param Models\Shortcode $shortcode Shortcode model.
+	 * @param PostTypeModel  $post_type Post type model.
+	 * @param ShortcodeModel $shortcode Shortcode model.
 	 */
-	public function __construct( Models\PostType $post_type, Models\Shortcode $shortcode ) {
+	public function __construct( PostTypeModel $post_type, ShortcodeModel $shortcode ) {
 
 		$this->post_type = $post_type->get_post_type();
 
@@ -49,7 +50,7 @@ class MetaBox {
 			return;
 		}
 
-		$title = _x( 'Shortcode', 'Shortcode meta box title', 'text-modules' );
+		$title = esc_html_x( 'Shortcode', 'Shortcode meta box title', 'text-modules' );
 		add_meta_box(
 			'text_modules_shortcode_meta_box',
 			$title,

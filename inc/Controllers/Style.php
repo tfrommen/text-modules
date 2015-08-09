@@ -3,7 +3,6 @@
 namespace tf\TextModules\Controllers;
 
 use tf\TextModules\Models\Style as Model;
-use tf\TextModules\Models;
 
 /**
  * Class Style

@@ -2,9 +2,10 @@
 
 namespace tf\TextModules\Controllers;
 
-use tf\TextModules\Models;
 use tf\TextModules\Models\Shortcode as Model;
-use tf\TextModules\Views;
+use tf\TextModules\Models\PostType as PostTypeModel;
+use tf\TextModules\Models\TextModulesPage as PageModel;
+use tf\TextModules\Views\ShortcodePostsColumn as View;
 
 /**
  * Class Shortcode
@@ -19,7 +20,7 @@ class Shortcode {
 	private $model;
 
 	/**
-	 * @var Models\TextModulesPage
+	 * @var PageModel
 	 */
 	private $page;
 
@@ -29,23 +30,23 @@ class Shortcode {
 	private $post_type;
 
 	/**
-	 * @var Views\ShortcodePostsColumn
+	 * @var View
 	 */
 	private $view;
 
 	/**
 	 * Constructor. Set up the properties.
 	 *
-	 * @param Model                      $model     Model.
-	 * @param Models\TextModulesPage     $page      Text modules page model.
-	 * @param Views\ShortcodePostsColumn $view      Shortcode posts column view.
-	 * @param Models\PostType            $post_type Post type model.
+	 * @param Model         $model     Model.
+	 * @param PageModel     $page      Text modules page model.
+	 * @param View          $view      Shortcode posts column view.
+	 * @param PostTypeModel $post_type Post type model.
 	 */
 	public function __construct(
 		Model $model,
-		Models\TextModulesPage $page,
-		Views\ShortcodePostsColumn $view,
-		Models\PostType $post_type
+		PageModel $page,
+		View $view,
+		PostTypeModel $post_type
 	) {
 
 		$this->model = $model;
