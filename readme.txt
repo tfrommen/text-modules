@@ -311,6 +311,12 @@ This plugin requires PHP 5.3.
 1. Activate the plugin through the _Plugins_ menu in WordPress.
 1. Find the new _Text Modules_ menu in your WordPress backend.
 
+== Screenshots ==
+
+1. **List table** - Here you can see all text modules together with their individual slug and shortcode.
+1. **Meta box** - Here you can see the currently edited text module's shortcode.
+1. **Widget** - Use any text module in a Text Module widget.
+
 == Changelog ==
 
 = 1.0.1 =
