@@ -1,0 +1,50 @@
+{
+  "name": "tfrommen/text-modules",
+  "description": "Use the new Text Module custom post type and display a text module by either shortcode or widget.",
+  "type": "wordpress-plugin",
+  "keywords": [
+    "custom post type",
+    "module",
+    "modules",
+    "post",
+    "posts",
+    "snippet",
+    "snippets",
+    "text",
+    "wordpress",
+    "wp"
+  ],
+  "homepage": "https://github.com/tfrommen/text-modules",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Thorsten Frommen",
+      "email": "info@tfrommen.de",
+      "homepage": "http://tfrommen.de",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/tfrommen/text-modules/issues",
+    "forum": "https://wordpress.org/support/plugin/text-modules",
+    "source": "https://github.com/tfrommen/text-modules"
+  },
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "require-dev": {
+    "brain/monkey": "^1.4.0",
+    "mockery/mockery": "0.9.*",
+    "phpunit/phpunit": "~4.8|~5.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "tfrommen\\TextModules\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "tfrommen\\TextModules\\Tests\\": "tests/php"
+    }
+  }
+}

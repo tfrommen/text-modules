@@ -1,12 +1,18 @@
 # Text Modules
 
+[![Latest Stable Version](https://poser.pugx.org/tfrommen/text-modules/v/stable)](https://packagist.org/packages/tfrommen/text-modules)
+[![Project Status](http://opensource.box.com/badges/active.svg)](http://opensource.box.com/badges)
+[![Build Status](https://travis-ci.org/tfrommen/text-modules.svg?branch=master)](http://travis-ci.org/tfrommen/text-modules)
+[![License](https://poser.pugx.org/tfrommen/text-modules/license)](https://packagist.org/packages/tfrommen/text-modules)
+
 Have you ever wanted to use some pieces of text information more than once? For instance, contact information such as a postal address? Or some slogan, motto or claim?
 
 This is exactly when _Text Modules_ kicks in.
 
 ## Installation
 
-1. Upload the `text-modules` folder to the `/wp-content/plugins/` directory on your web server.
+1. [Download ZIP](https://downloads.wordpress.org/plugin/text-modules.zip).
+1. Upload contents to the `/wp-content/plugins` directory on your web server.
 1. Activate the plugin through the _Plugins_ menu in WordPress.
 1. Find the new _Text Modules_ menu in your WordPress backend.
 
@@ -24,7 +30,7 @@ This filter lets you alter the HTML after the widget content.
 
 ```php
 /**
- * Filter the HTML after the widget content.
+ * Filters the HTML after the widget content.
  *
  * @param string $after_widget_content Some HTML after the widget content.
  */
@@ -40,7 +46,7 @@ This filter lets you alter the HTML before the widget content.
 
 ```php
 /**
- * Filter the HTML before the widget content.
+ * Filters the HTML before the widget content.
  *
  * @param string $before_widget_content Some HTML before the widget content.
  */
@@ -56,7 +62,7 @@ Yes, you can alter the post type (slug).
 
 ```php
 /**
- * Filter the post type.
+ * Filters the post type.
  *
  * @param string $post_type Post type.
  */
@@ -72,14 +78,14 @@ If you want to alter a specific post type argument but you can't find a fitting 
 
 ```php
 /**
- * Filter the post type args.
+ * Filters the post type args.
  *
  * @param array $args Post type args.
  */
 add_filter( 'text_modules_post_type_args', function( $args ) {
 
-	// Use hierarchical external content
-	$args[ 'hierarchical' ] = TRUE;
+	// Use hierarchical external content.
+	$args['hierarchical'] = TRUE;
 
 	return $args;
 } );
@@ -91,13 +97,13 @@ The post type description can be customized by using the `text_modules_post_type
 
 ```php
 /**
- * Filter the post type description.
+ * Filters the post type description.
  *
  * @param string $description Post type description.
  */
 add_filter( 'text_modules_post_type_description', function() {
 
-	// Provide a description
+	// Provide a description.
 	return 'Simple post type for text modules.';
 } );
 ```
@@ -108,14 +114,14 @@ In case you don't like the labels, easily adapt them to your liking.
 
 ```php
 /**
- * Filter the post type labels.
+ * Filters the post type labels.
  *
- * @param array $labels Post type labels.
+ * @param string[] $labels Post type labels.
  */
 add_filter( 'text_modules_post_type_labels', function( $labels ) {
 
 	// A little more horror, please...
-	$labels[ 'not_found' ] = 'ZOMG, no text module found!!1!!1!!oneone!!!1!eleven!1!';
+	$labels['not_found'] = 'No text module found!!1!!1!!oneone!!!1!eleven!1!';
 
 	return $labels;
 } );
@@ -127,13 +133,13 @@ This filter provides you with the post type supports.
 
 ```php
 /**
- * Filter the post type supports.
+ * Filters the post type supports.
  *
- * @param array $supports Post type supports.
+ * @param string[] $supports Post type supports.
  */
 add_filter( 'text_modules_post_type_supports', function( $supports ) {
 
-	// Let's add revisions for our post type
+	// Let's add revisions for our post type.
 	if ( ! in_array( 'revisions', $supports ) ) {
 		$supports[] = 'revisions';
 	}
@@ -148,7 +154,7 @@ By default, do_shortcode() will be called on the shortcode output. Of course, yo
 
 ```php
 /**
- * Filter if the shortcode should apply do_shortcode() to the output.
+ * Filters if the shortcode should apply do_shortcode() to the output.
  *
  * @param bool $do_shortcode Should the shortcode apply do_shortcode()?
  */
@@ -161,9 +167,9 @@ In case you would like to adapt how the shortcode data is handled, you can provi
 
 ```php
 /**
- * Filter the shortcode callback.
+ * Filters the shortcode callback.
  *
- * @param array|string $callback Shortcode callback.
+ * @param callable $callback Shortcode callback.
  */
 add_filter( 'text_modules_shortcode_callback', function() {
 
@@ -177,7 +183,7 @@ This filter lets you alter the shortcode's 'id' attribute name.
 
 ```php
 /**
- * Filter the 'id' shortcode attribute name.
+ * Filters the 'id' shortcode attribute name.
  *
  * @param string $name Attribute name.
  */
@@ -193,14 +199,14 @@ This filter lets you alter the shortcode output. The second parameter holds the 
 
 ```php
 /**
- * Filter the shortcode output.
+ * Filters the shortcode output.
  *
- * @param string $output Shortcode output.
- * @param array  $atts   Shortcode attributes array.
+ * @param string $shortcode Shortcode output.
+ * @param array  $atts      Shortcode attributes array.
  */
-add_filter( 'text_modules_shortcode_output', function( $output ) {
+add_filter( 'text_modules_shortcode_output', function( $shortcode ) {
 
-	return $output . ' Over and out.';
+	return $shortcode . ' Over and out.';
 } );
 ```
 
@@ -210,14 +216,14 @@ Also, there's `text_modules_shortcode_query_args`, which provides you with the c
 
 ```php
 /**
- * Filter the shortcode query args.
+ * Filters the shortcode query args.
  *
  * @param array $args Shortcode query args.
  */
 add_filter( 'text_modules_shortcode_query_args', function( $args ) {
 
-	// Exclude some text modules by ID
-	$args[ 'post__not_in' ] = array( 4, 8, 15, 16, 23, 42 );
+	// Exclude some text modules by ID.
+	$args['post__not_in'] = array( 4, 8, 15, 16, 23, 42 );
 
 	return $args;
 } );
@@ -229,7 +235,7 @@ This filter lets you alter the shortcode's 'slug' attribute name.
 
 ```php
 /**
- * Filter the 'slug' shortcode attribute name.
+ * Filters the 'slug' shortcode attribute name.
  *
  * @param string $name Attribute name.
  */
@@ -245,7 +251,7 @@ This filter lets you alter the shortcode's tag.
 
 ```php
 /**
- * Filter the shortcode tag.
+ * Filters the shortcode tag.
  *
  * @param string $shortcode_tag Shortcode tag.
  */
@@ -261,7 +267,7 @@ By default, text modules are being queried by their post ID first. Of course, yo
 
 ```php
 /**
- * Filter if the shortcode (query) should use the post slug instead of the post ID.
+ * Filters if the shortcode (query) should use the post slug instead of the post ID.
  *
  * @param bool $use_slug Use slug instead of ID?
  */
@@ -274,18 +280,29 @@ Also, there's `text_modules_widget_form_query_args`, which provides you with the
 
 ```php
 /**
- * Filter the widget form query args.
+ * Filters the widget form query args.
  *
  * @param array $args Query args.
  */
 add_filter( 'text_modules_widget_form_query_args', function( $args ) {
 
-	// Exclude some text modules by ID
-	$args[ 'post__not_in' ] = array( 4, 8, 15, 16, 23, 42 );
+	// Exclude some text modules by ID.
+	$args['post__not_in'] = array( 4, 8, 15, 16, 23, 42 );
 
 	return $args;
 } );
 ```
+
+## Screenshots
+
+![List table](assets/screenshot-1.png)  
+**List table** - Here you can see all text modules together with their individual slug and shortcode.
+
+![Meta box](assets/screenshot-2.png)  
+**Meta box** - Here you can see the currently edited text module's shortcode.
+
+![Widget](assets/screenshot-3.png)  
+**Widget** - Use any text module in a Text Module widget.
 
 ## Contribution
 
